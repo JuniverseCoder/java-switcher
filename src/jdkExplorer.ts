@@ -60,9 +60,9 @@ export function resolveJavaVersion(jdkPath: string): string | undefined {
 
     // Fallback to executing 'java -version'
     const javaExecutable = os.platform() === 'win32' ? 'bin\\java.exe' : 'bin/java';
-    const javaCommand = `"${path.join(jdkPath, javaExecutable)}" -version`;
+    const javaCommand = `"${path.join(jdkPath, javaExecutable)}" -version 2>&1`;
     try {
-        const output = execSync(javaCommand, { encoding: 'utf-8' });
+        const output = execSync(javaCommand, { encoding: 'utf-8' }).toString();
         const match = output.match(/version\s+"((1\.)?\d+).+"/);
         return match ? match[1] : undefined;
     } catch (error) {
