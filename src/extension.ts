@@ -1,10 +1,8 @@
 import * as vscode from 'vscode';
-import * as path from 'path';
 import { ConfigUpdater } from './configUpdater';
-import { findJdks, IDetectedJdk, resolveJavaVersion } from './jdkExplorer';
+import { findJdks, resolveJavaVersion } from './jdkExplorer';
 import { findMavens } from './mavenExplorer';
 import { getMavenVersion } from './mavenExplorer';
-import { configureTerminal } from './terminal';
 
 export async function activate(context: vscode.ExtensionContext) {
     console.log('Congratulations, your extension "java-switcher" is now active!');

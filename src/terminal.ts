@@ -1,6 +1,5 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
-import * as fs from 'fs';
 
 export async function configureTerminal(context: vscode.ExtensionContext, homes: { javaHome?: string, mavenHome?: string }) {
     const config = vscode.workspace.getConfiguration();

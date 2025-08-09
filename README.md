@@ -1,7 +1,7 @@
 # Java Switcher
 
-[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/your-publisher.java-switcher.svg)](https://marketplace.visualstudio.com/items?itemName=your-publisher.java-switcher)
-[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/your-publisher.java-switcher.svg)](https://marketplace.visualstudio.com/items?itemName=your-publisher.java-switcher)
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/JuniverseCoder.java-switcher.svg)](https://marketplace.visualstudio.com/items?itemName=JuniverseCoder.java-switcher)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/JuniverseCoder.java-switcher.svg)](https://marketplace.visualstudio.com/items?itemName=JuniverseCoder.java-switcher)
 
 Easily switch between different JDK and Maven versions on a per-workspace basis. 
 

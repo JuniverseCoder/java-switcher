@@ -3,9 +3,11 @@
   "displayName": "Java Switcher",
   "description": "Easily switch the workspace Java JDK version.",
   "version": "0.0.1",
+  "publisher": "JuniverseCoder",
+  "icon": "images/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/java-switcher.git"
+    "url": "https://github.com/JuniverseCoder/java-switcher.git"
   },
   "engines": {
     "vscode": "^1.102.0"
