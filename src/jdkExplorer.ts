@@ -63,7 +63,7 @@ export function resolveJavaVersion(jdkPath: string): string | undefined {
     const javaCommand = `"${path.join(jdkPath, javaExecutable)}" -version`;
     try {
         const output = execSync(javaCommand, { encoding: 'utf-8' });
-        const match = output.match(/version\s+"(\d+(\.\d+)*)[^"]*"/);
+        const match = output.match(/version\s+"((1\.)?\d+).+"/);
         return match ? match[1] : undefined;
     } catch (error) {
         console.error(`Error executing '${javaCommand}':`, error);

@@ -84,7 +84,7 @@ async function configureMacTerminal(homes: { javaHome?: string, mavenHome?: stri
 async function configureLinuxTerminal(context: vscode.ExtensionContext, homes: { javaHome?: string, mavenHome?: string }) {
     const config = vscode.workspace.getConfiguration();
     const profiles = config.get<{ [key: string]: any }>('terminal.integrated.profiles.linux', {});
-    const bashrcPath = path.join(context.extensionPath, 'src', '.bashrc');
+    const bashrcPath = path.join(context.extensionPath, 'bin', '.bashrc');
 
     const profileName = "Java Switcher";
     const env: { [key: string]: string } = {};

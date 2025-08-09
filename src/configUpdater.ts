@@ -70,6 +70,14 @@ export class ConfigUpdater {
         }
 
         await configureTerminal(this.context, homes);
+
+        const selection = await vscode.window.showInformationMessage(
+            'Java/Maven configuration updated. Please reload the window for the changes to take effect.',
+            'Reload'
+        );
+        if (selection === 'Reload') {
+            vscode.commands.executeCommand('workbench.action.reloadWindow');
+        }
     }
 
     private async updateJdkSettings(jdkName: string, jdkPath: string) {
@@ -84,7 +92,7 @@ export class ConfigUpdater {
             'rsp-ui.rsp.java.home': { value: jdkPath, extensionId: 'redhat.rsp-ui' },
             'salesforcedx-vscode-apex.java.home': { value: jdkPath, extensionId: 'salesforce.salesforcedx-vscode-apex' },
             'metals.javaHome': { value: jdkPath, extensionId: 'scalameta.metals' },
-            'maven.terminal.customEnv': { value: [{ "environmentVariable": "JAVA_HOME", "value": jdkPath }], extensionId: 'redhat.java' }
+            'maven.terminal.customEnv': { value: [{ "environmentVariable": "JAVA_HOME", "value": jdkPath }], extensionId: 'vscjava.vscode-maven' }
         };
 
         for (const [setting, { value, extensionId }] of Object.entries(settingsToUpdate)) {
@@ -106,7 +114,7 @@ export class ConfigUpdater {
 
     private async updateMavenSettings(mavenName: string, mavenPath: string) {
         const config = vscode.workspace.getConfiguration();
-        if (vscode.extensions.getExtension('redhat.java')) {
+        if (vscode.extensions.getExtension('vscjava.vscode-maven')) {
             await this.updateConfig(config, 'maven.executable.path', path.join(mavenPath, 'bin', 'mvn'));
         }
     }

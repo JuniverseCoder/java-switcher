@@ -92,8 +92,6 @@ export async function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(createSwitcher('JDK'));
     context.subscriptions.push(createSwitcher('Maven'));
 
-    // Initial update
-    configUpdater.update();
 }
 
 export function deactivate() {}
