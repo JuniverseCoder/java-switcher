@@ -1,0 +1,80 @@
+{
+  "name": "java-switcher",
+  "displayName": "Java Switcher",
+  "description": "Easily switch the workspace Java JDK version.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/java-switcher.git"
+  },
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Java Switcher",
+      "properties": {
+        "javaSwitcher.java.home": {
+          "type": "string",
+          "default": "",
+          "description": "The path of the selected JDK."
+        },
+        "javaSwitcher.maven.home": {
+          "type": "string",
+          "default": "",
+          "description": "The path of the selected Maven installation."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "javaSwitcher.switchJDK",
+        "title": "Java Switcher: Switch Workspace JDK"
+      },
+      {
+        "command": "javaSwitcher.switchMaven",
+        "title": "Java Switcher: Switch Workspace Maven"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test --extensionDevelopmentPath=${workspaceFolder} --extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+  },
+  "devDependencies": {
+    "@types/glob": "^9.0.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "18.x",
+    "@types/sinon": "^17.0.3",
+    "@types/vscode": "^1.87.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jsonc": "^2.20.1",
+    "jsonc-eslint-parser": "^2.4.0",
+    "sinon": "^17.0.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@vscode/test-cli": "^0.0.11",
+    "glob": "^11.0.3"
+  }
+}
